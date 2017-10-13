@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="config.js"></script>>
+<script>
+    var url = "https://api.nasa.gov/planetary/apod?api_key="+apiKey;
+    $.get(url, function (data) {
+        $('.spaceImg img').attr('src', data.url);
+    });
+</script>
+
+<body style="text-align:center;">
+    <h1>Nasa Image of the day</h1>
+    <div class="spaceImg">
+    <img src="" alt="Nasa image of the day" \>
+    </div>
+</body>
+
+</html>
