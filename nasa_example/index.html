@@ -14,11 +14,14 @@
     var url = "https://api.nasa.gov/planetary/apod?api_key="+apiKey;
     $.get(url, function (data) {
         $('.spaceImg img').attr('src', data.url);
+        $('h1').html(data.title);
+        $('p').html(data.explanation);
     });
 </script>
 
 <body style="text-align:center;">
     <h1>Nasa Image of the day</h1>
+    <p></p>
     <div class="spaceImg">
     <img src="" alt="Nasa image of the day" \>
     </div>
