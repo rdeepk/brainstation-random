@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Ramandeep Kaur">
+    <link rel="icon" href="">
+    <title><%= user.heading %></title>
+
+    <!-- styles 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+    <h1> <%= user.heading %></h1>
+    <h2> <%= user.username %></h2>
+
+    <%
+        let sum = 0;
+        for (let i= 0; i<max; i++) {
+            sum += i;
+        }
+    %>
+        <p>Sum: <%= sum %></p>
+<body>
+</body>
+
+</html>
