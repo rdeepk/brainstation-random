@@ -9,29 +9,9 @@
     <title>Users</title>
 </head>
 <body>
-<% 
-let girlsArray = [];
-let boysArray = [];
-for(let i = 0; i< users.length; i++) {
-    if(users[i].gender === 'girl') { 
-        girlsArray.push(users[i]);
-    } else {
-            boysArray.push(users[i]); 
-    } 
-} %>
-<h1>Boys</h2>
-<ul>
-<% for(let i = 0; i< boysArray.length; i++) { 
-    if(boysArray[i].age > filter) {%>
-    <li><%= boysArray[i].name %></li>
-<% } } %>
-</ul>
-<h1>Girls</h2>
-<ul>
-<% for(let i = 0; i< girlsArray.length; i++) { %>
-    <li><%= girlsArray[i].name %></li>
-<% } %>
-</ul>
+<h1>Welcome <%= user %></h1>
+<p>City: <%= city %></p>
+<p>Course: <%= course %></p>
 </body>
 
 </html>
