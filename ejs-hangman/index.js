@@ -16,7 +16,6 @@ let words = [
 let answer;
 let nWrong;
 let pastGuesses = [];
-let pastGames = [];
 let cont = true;
 let won = false;
 let gameStats = {};
@@ -29,17 +28,34 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.listen(port);
 app.get('/game', function (req, res) {
+    let data = {};
     if (g = req.query.guess) {
         checkGuess(g);
-        let data = {
-            hangman: printHangMan(nWrong),
-            answer_string: answer_string,
-            success: won,
-            game_over: checkGameOver()
+        let isGameOver = checkGameOver();
+        console.log("checking guess ...");
+        if (won || isGameOver) {
+            console.log("Game Finished");
+            data = {
+                hangman: printHangMan(nWrong),
+                answer_string: answer_string,
+                success: won,
+                game_over: isGameOver,
+                stats: gameStats
+            }
+        } else {
+            console.log("Game not over..");
+            data = {
+                hangman: printHangMan(nWrong),
+                answer_string: answer_string,
+                success: won,
+                game_over: isGameOver
+            }
         }
+        console.log(data);
         return res.send(data);
     }
-    let data = {
+    console.log("no guess");
+    data = {
         hangman: printHangMan(nWrong),
         answer_string: answer_string
     }
@@ -189,23 +205,27 @@ function checkInputStatus() {
 function checkGameOver() {
     checkInputStatus();
     gameStats = {
-        'attempts': answer.length + nWrong,
-        'guessedLetters': pastGuesses
+        attempts: answer.length + nWrong,
+        guessedLetters: pastGuesses,
+        answer: answer.join(','),
+        lostCount: lostCount
     }
     if (won) {
         gameStats.result = 'Won';
-    } else {
+        wonCount++;
+        gameStats.wonCount = wonCount;
+    }
+    
+    if(nWrong >= 6){
         gameStats.result = 'Lost';
+        lostCount++;
+        gameStats.lostCount = lostCount;
     }
     console.log("Checking...")
     console.log("tries: " + nWrong);
     if ((nWrong >= 6) || (won)) {
-        /**/
-        //outputResults();
         return true;
     }
 
     return false;
 }
-
-
