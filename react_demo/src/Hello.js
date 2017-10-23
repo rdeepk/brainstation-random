@@ -2,7 +2,11 @@ import React from 'react';
 
 class Hello extends React.Component {
     render() {
-        return <h1>Hello {this.props.name}</h1>;
+        let helloStyle = {
+            color: "red",
+            fontWeight: "bold"
+        }
+        return <p style={helloStyle}>Hello {this.props.name}</p>;
     }
 }
 
