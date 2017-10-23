@@ -6,7 +6,8 @@ class Hello extends React.Component {
             color: "red",
             fontWeight: "bold"
         }
-        return <p style={helloStyle}>Hello {this.props.name}</p>;
+        console.log(this.props.style)
+        return <p style={this.props.style}>Hello {this.props.name}</p>;
     }
 }
 

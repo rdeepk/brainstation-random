@@ -8,7 +8,7 @@ class Greeting extends React.Component {
         let namesJSX = [];
      
         for(let i = 0; i < names.length; i++ ) {
-            namesJSX.push(<Hello name = {names[i]} />)
+            namesJSX.push(<Hello style={{color:"blue"}} name = {names[i]} />)
         }
         return (
             <div>
