@@ -1,4 +1,5 @@
 import React from 'react';
+import './hello.css';
 
 class Hello extends React.Component {
     render() {
@@ -7,7 +8,7 @@ class Hello extends React.Component {
             fontWeight: "bold"
         }
         console.log(this.props.style)
-        return <p style={this.props.style}>Hello {this.props.name}</p>;
+        return <p className="helloStyle">Hello {this.props.name}</p>;
     }
 }
 
