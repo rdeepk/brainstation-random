@@ -4,13 +4,14 @@ class Clicker extends React.Component{
     constructor() {
         super();
         //we need to bind this to the function clicked because it is called onClick which is a window object
-        this.clicked = this.clicked.bind(this);
+        //we dont need it in case if we use arrow function because it will automativally bind this object
+        //this.clicked = this.clicked.bind(this);
         this.state= {
             timesClicked: 0
         }
     }
 
-    clicked () {
+    clicked = () => {
         this.setState({
             timesClicked: this.state.timesClicked +1
         });
