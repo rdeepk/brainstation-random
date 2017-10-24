@@ -13,7 +13,7 @@ class CommentBox extends Component{
         <form onSubmit={this.addComment}>
             <div><input type= "text" name="title"/></div>
            <div><textarea name = "content"></textarea></div>
-            <div><button type="submit"></button></div>
+            <div><button type="submit">Add Comment</button></div>
         </form>
     )
 
