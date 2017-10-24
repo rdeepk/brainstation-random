@@ -5,12 +5,17 @@ class ItemList extends Component {
     render() {
         let items = this.props.items;
         let itemsJSX = items.map((item, i) => {
-            return item.categoryItems.map((categoryItem, j) => {
-                return <Item   category={item.categoryName}
-                  title = {categoryItem.title}
-                  price = {categoryItem.prce}
-                   key = {j} />
+            let tmpJSX = item.categoryItems.map((categoryItem, j) => {
+                return <Item title = {categoryItem.title}
+                             price = {categoryItem.prce}
+                             key = {j} />
             })
+            return (
+                <div>
+                    <h2>{item.categoryName}</h2>
+                    <div>{tmpJSX}</div>
+                </div>
+            )
     })
     return(
             <div>{itemsJSX}</div>
