@@ -11,4 +11,5 @@ const blogPosts = [
 ]
 
 ReactDOM.render(<App blogPosts={blogPosts} />, document.getElementById('root'));
+
 registerServiceWorker();
