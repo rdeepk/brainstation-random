@@ -12,9 +12,14 @@ class Clicker extends React.Component{
     }
 
     clicked = () => {
+        //every time state is set render is called again because it is using state.
+        //set state is async and its possible the state is not updated right away. To make sure it is updated use a callback function
         this.setState({
             timesClicked: this.state.timesClicked +1
+        }, function(){
+            console.log(this.state.timesClicked);
         });
+        console.log(this.state.timesClicked);
     }
 
     render() {
