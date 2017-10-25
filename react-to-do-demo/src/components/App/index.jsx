@@ -7,8 +7,14 @@ class App extends Component {
     //state must be an object
     this.state = {
       todos: props.todos,
-      text:""
+      text:"",
+      output:""
     }
+  }
+  clickHandler = () => {
+    this.setState({
+      output: this.state.text
+    })
   }
 
   textHandler = (event) => {
@@ -39,9 +45,9 @@ class App extends Component {
                       toggleDone = {this.toggleDone} />
         </div>
         <div><input type="text"  onKeyPress={(event) => {this.textHandler(event)}} /></div>
-        <div><button type="submit">Send</button></div>
+        <div><button type="submit" onClick={this.clickHandler}>Send</button></div>
         <h3>You typed:</h3>
-        <p className="text">{this.state.text}</p>
+        <p className="text">{this.state.output}</p>
       </div>
     );
   }
