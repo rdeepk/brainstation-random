@@ -20,9 +20,11 @@ class App extends Component {
   }
   componentWillUpdate() {
     console.log("will update");
+    console.log(this.state.counter);
   }
   componentDidUpdate() {
     console.log("did update");
+    console.log(this.state.counter);
   }
 
   buttonHandler = () => {
