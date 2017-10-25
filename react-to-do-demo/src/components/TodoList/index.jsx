@@ -7,7 +7,9 @@ class TodoList extends Component {
             return(
                <Todo key={i}
                text={todo.text}
-               done={todo.done} />
+               done={todo.done}
+               toggleDone={this.props.toggleDone}
+               index={i} />
             )
         })
         return (
