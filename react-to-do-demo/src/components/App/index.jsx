@@ -8,12 +8,12 @@ class App extends Component {
     this.state = {
       todos: props.todos,
       text:"",
-      output:""
+      output:[]
     }
   }
   clickHandler = () => {
     this.setState({
-      output: this.state.text
+      output: this.state.output.concat(this.state.text)
     })
   }
 
@@ -35,6 +35,9 @@ class App extends Component {
   }
 
   render() {
+    let outputJSX = this.state.output.map((text, i) => {
+      return <li key ={i}>{text}</li>
+    })
     return (
       <div className="App">
         <header className="App-header">
@@ -44,10 +47,10 @@ class App extends Component {
             <TodoList todos= {this.state.todos} 
                       toggleDone = {this.toggleDone} />
         </div>
-        <div><input type="text"  onKeyPress={(event) => {this.textHandler(event)}} /></div>
+        <div><input type="text"  onChange={(event) => {this.textHandler(event)}} /></div>
         <div><button type="submit" onClick={this.clickHandler}>Send</button></div>
         <h3>You typed:</h3>
-        <p className="text">{this.state.output}</p>
+        <p>{outputJSX}</p>
       </div>
     );
   }
