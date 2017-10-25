@@ -7,11 +7,11 @@ class ItemList extends Component {
         let itemsJSX = items.map((item, i) => {
             let tmpJSX = item.categoryItems.map((categoryItem, j) => {
                 return <Item title = {categoryItem.title}
-                             price = {categoryItem.prce}
+                             price = {categoryItem.price}
                              key = {j} />
             })
             return (
-                <div>
+                <div key= {i}>
                     <h2>{item.categoryName}</h2>
                     <div>{tmpJSX}</div>
                 </div>
