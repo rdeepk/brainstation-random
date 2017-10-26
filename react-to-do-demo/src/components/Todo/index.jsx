@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 
 class Todo extends Component {
 
@@ -17,6 +18,13 @@ class Todo extends Component {
                 </li>
             )
     }
+}
+
+Todo.propTypes = {
+    done: propTypes.bool.isRequired,
+    text: propTypes.string.isRequired,
+    toggleDone: propTypes.func.isRequired,
+    index: propTypes.number.isRequired
 }
 
 export default Todo;
