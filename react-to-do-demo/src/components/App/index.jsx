@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import TodoList from '../TodoList';
+import Form from '../Form';
+import OutputUserForm from '../OutputUserForm';
+
 class App extends Component {
   // constructor(props){
   //   super(props)
@@ -18,6 +21,12 @@ class App extends Component {
       form:{}
     }
   }
+
+  updateForm = (formData) => {
+    this.setState({
+      form: formData
+    })
+  } 
 
   handleInputForm(name, value) {
     console.log(value);
@@ -50,17 +59,6 @@ class App extends Component {
     })
   }
 
-  handleFormSubmit(e) {
-    e.preventDefault();
-    console.log(this.form.firstname.value)
-    console.log(this.form.lastName.value)
-    console.log(this.form.email.value)
-    console.log(this.form.authorize.checked)
-
-    this.setState ({
-      form: this.form
-    })
-  }
   render() {
     // let outputJSX = this.state.output.map((text, i) => {
     //   return <li key ={i}>{text}</li>
@@ -70,14 +68,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <form ref={(form)=>{this.form = form}}
-              onSubmit={(e)=>{this.handleFormSubmit(e)}} >
-          FName: <input type ="text" name="firstname" /><br />
-          Lname: <input type="text" name="lastName" /><br />
-          Email: <input type="email" name="email" /><br />
-          Authorize: <input type="checkbox" name="authorize" /><br />
-          <button type="submit">Submit</button>
-          </form>
+        <div>
+        <Form updateForm={this.updateForm} />
+        </div>
+        <OutputUserForm form={this.state.form}/>
       </div>
     );
   }
