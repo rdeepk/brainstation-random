@@ -15,10 +15,7 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      formInput: {
-        firstname:"",
-        lastName:""
-      }
+      form:{}
     }
   }
 
@@ -53,9 +50,16 @@ class App extends Component {
     })
   }
 
-  handleSubmit(e) {
+  handleFormSubmit(e) {
     e.preventDefault();
-    console.log(this.firstname.value)
+    console.log(this.form.firstname.value)
+    console.log(this.form.lastName.value)
+    console.log(this.form.email.value)
+    console.log(this.form.authorize.checked)
+
+    this.setState ({
+      form: this.form
+    })
   }
   render() {
     // let outputJSX = this.state.output.map((text, i) => {
@@ -66,14 +70,13 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <form>
-          FName: <input type ="text" name="firstname"
-                        ref={(input)=>{this.firstname = input}}
-                        /><br />
+        <form ref={(form)=>{this.form = form}}
+              onSubmit={(e)=>{this.handleFormSubmit(e)}} >
+          FName: <input type ="text" name="firstname" /><br />
           Lname: <input type="text" name="lastName" /><br />
           Email: <input type="email" name="email" /><br />
           Authorize: <input type="checkbox" name="authorize" /><br />
-          <button type="submit" onClick={(e) => {this.handleSubmit(e)}}>Submit</button>
+          <button type="submit">Submit</button>
           </form>
       </div>
     );
