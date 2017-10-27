@@ -53,6 +53,10 @@ class App extends Component {
     })
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.firstname.value)
+  }
   render() {
     // let outputJSX = this.state.output.map((text, i) => {
     //   return <li key ={i}>{text}</li>
@@ -63,14 +67,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <form>
-          FName: <input type ="text" name="firstname" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}}
-                        value={this.state.firstname}
+          FName: <input type ="text" name="firstname"
+                        ref={(input)=>{this.firstname = input}}
                         /><br />
-          Lname: <input type="text" name="lastName" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}}
-                        value={this.state.lastname} /><br />
-          {/* Email: <input type="email" name="email" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}} /><br />
-          Authorize: <input type="checkbox" name="authorize" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}} /><br /> */}
-          <button type="submit">Submit</button>
+          Lname: <input type="text" name="lastName" /><br />
+          Email: <input type="email" name="email" /><br />
+          Authorize: <input type="checkbox" name="authorize" /><br />
+          <button type="submit" onClick={(e) => {this.handleSubmit(e)}}>Submit</button>
           </form>
       </div>
     );
