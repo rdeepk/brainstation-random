@@ -15,14 +15,19 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      firstname:""
+      formInput: {
+        firstname:"",
+        lastName:""
+      }
     }
   }
 
-  handleFirstName(text) {
-    console.log(text);
+  handleInputForm(name, value) {
+    console.log(value);
+    let newFormInput = this.state.formInput;
+    newFormInput[name] = value
     this.setState({
-      firstname: text
+      formInput: newFormInput
     })
   }
   clickHandler = () => {
@@ -58,12 +63,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <form>
-          FName: <input type ="text" name="firstname" onChange={(e) => {this.handleFirstName(e.target.value)}}
+          FName: <input type ="text" name="firstname" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}}
                         value={this.state.firstname}
                         /><br />
-          Lname: <input type="text" name="lastName" /><br />
-          Email: <input type="email" name="email" /><br />
-          Authorize: <input type="checkbox" name="authorize" /><br />
+          Lname: <input type="text" name="lastName" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}}
+                        value={this.state.lastname} /><br />
+          {/* Email: <input type="email" name="email" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}} /><br />
+          Authorize: <input type="checkbox" name="authorize" onChange={(e) => {this.handleInputForm(e.target.name, e.target.value)}} /><br /> */}
           <button type="submit">Submit</button>
           </form>
       </div>
