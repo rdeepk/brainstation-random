@@ -22,9 +22,9 @@ class App extends Component {
     let outputJSX;
 
     if(this.state.page === 'about') {
-      outputJSX = <About />
+      outputJSX = <About changePage={this.changePage} />
     } else if(this.state.page === 'contact') {
-      outputJSX = <Contact />
+      outputJSX = <Contact changePage={this.changePage}/>
     } else {
       outputJSX = <div>
         <h1>This is Home</h1>

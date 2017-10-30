@@ -6,7 +6,7 @@ class Contact extends React.Component {
             <div>
                 <h1>Contact</h1>
                 <br />
-                <a href="">Go Home</a>
+                <a href="#home" onClick={() => {this.props.changePage('home')}}>Go Home</a>
             </div>
         )
     }

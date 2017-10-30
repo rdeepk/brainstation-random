@@ -6,7 +6,7 @@ class About extends React.Component {
             <div>
                 <h1>About Me</h1>
                 <br />
-                <a href="">Go Home</a>
+                <a href="#home" onClick={() => {this.props.changePage('home')}}>Go Home</a>
             </div>
         )
     }
