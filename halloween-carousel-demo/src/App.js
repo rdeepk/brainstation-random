@@ -33,17 +33,36 @@ class App extends React.Component {
 		return (
 			<div style={{textAlign:'center'}}>
 				<h1>Calvin Carousel</h1>
-			    <div>
-			    	<button onClick={() => {this.handleClick(-1)}} disabled={this.state.image ===0?true:false}>Previous</button>
-			      	<span>{this.state.image+1} of {images.length}</span>
-			      	<button onClick={() => {this.handleClick(+1)}} disabled={this.state.image ===images.length-1?true:false}>Next</button>
-			    </div>
+          <ImageNavigation handleClick={this.handleClick} imageIndex={this.state.image} />
 				<div>
-					<img src={images[this.state.image]} />
+					<Images imageIndex={this.state.image} />
 				</div>
 			</div>			
 		)
 	}
+}
+
+class ImageNavigation extends React.Component {
+  render() {
+    return (
+      <div>
+			    	<button onClick={() => {this.props.handleClick(-1)}} disabled={this.props.imageIndex ===0?true:false}>Previous</button>
+			      	<span>{this.props.imageIndex+1} of {images.length}</span>
+			      	<button onClick={() => {this.props.handleClick(+1)}} disabled={this.props.imageIndex ===images.length-1?true:false}>Next</button>
+			    </div>
+    )
+  }
+}
+
+class Images extends React.Component {
+  render() {
+    let imagesJSX = images.map((image, i) => {
+      return <img key={i} src={image} style={{display:this.props.imageIndex === i ? "inline-block":"none"}} />
+    })
+    return (
+      <div>{imagesJSX}</div>
+    )
+  }
 }
 
 export default App;
