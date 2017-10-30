@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import About from './About';
 import Contact from './Contact';
+import Home from './Home';
 
 class App extends Component {
   constructor() {
@@ -26,11 +27,7 @@ class App extends Component {
     } else if(this.state.page === 'contact') {
       outputJSX = <Contact changePage={this.changePage}/>
     } else {
-      outputJSX = <div>
-        <h1>This is Home</h1>
-          <a href="#about" onClick={()=>{this.changePage('about')}}>About</a><br />
-          <a href="#contact" onClick={() => {this.changePage('contact')}}>Contact</a>
-          </div>
+      outputJSX = <Home changePage={this.changePage} />
     }
     
     return (
@@ -39,9 +36,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
           {outputJSX}
-        </p>
+        </div>
       </div>
     );
   }
