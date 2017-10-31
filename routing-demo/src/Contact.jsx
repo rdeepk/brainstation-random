@@ -7,7 +7,7 @@ class Contact extends React.Component {
             <div>
                 <h1>Contact</h1>
                 <br />
-                <Link to="/home">Go Home</Link>
+                <Link to="/">Go Home</Link>
             </div>
                 
         )
