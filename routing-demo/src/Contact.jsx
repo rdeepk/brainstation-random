@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Contact extends React.Component {
     render(){
@@ -6,8 +7,9 @@ class Contact extends React.Component {
             <div>
                 <h1>Contact</h1>
                 <br />
-                <a href="#home" onClick={() => {this.props.changePage('home')}}>Go Home</a>
+                <Link to="/home">Go Home</Link>
             </div>
+                
         )
     }
 }
