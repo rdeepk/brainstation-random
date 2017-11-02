@@ -24,13 +24,12 @@ class App extends Component {
         summary: response.data.currently.summary
       })
     })
+    promise.catch(function (error) {
+      console.log(error);
+    });
   }
 
    render() {
-    
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
     return (
       <div className="App">
         <header className="App-header">
