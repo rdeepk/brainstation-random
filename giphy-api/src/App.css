@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.images ul {
+  margin: 0;
+  padding: 0;
+}
+
+.images ul li{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.images ul li img{
+  display: inline-block;
+  height: 300px;
+  border: 10px solid #ccc; 
+}
+
+input[type=submit] {
+  padding: 10px 15px;
+  background: #ccc;
+  border: 0;
+  color: #000;
+  border-radius: 6px;
+
+}
