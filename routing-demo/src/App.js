@@ -5,6 +5,7 @@ import './App.css';
 import About from './About';
 import Contact from './Contact';
 import Home from './Home';
+import Student from './Student';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/student/:studentId" component={Student} />
         </Switch>
         </div>
       </div>
